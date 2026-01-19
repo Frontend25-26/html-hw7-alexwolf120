@@ -26,8 +26,7 @@ body {
     background-color: white;
 }
 
-
-#header {
+.header {
     height: 96px;
     display: flex;
     align-items: center;
@@ -60,7 +59,6 @@ body {
     white-space: nowrap;
 }
 
-
 .Image.small {
     width: 554px;
     height: 400px;
@@ -69,7 +67,7 @@ body {
     background: #f0f0f0;
 }
 
-#about {
+.about {
     margin-top: 80px;
     display: grid;
     grid-template-columns: 1fr;
@@ -83,8 +81,9 @@ body {
     margin-bottom: 0;
 }
 
-#education {
+.education {
     margin-top: 80px;
+    margin-bottom: 0;
 }
 
 .section-header {
@@ -149,7 +148,7 @@ body {
     margin-top: 0;
 }
 
-#experience {
+.experience {
     margin-top: 80px;
 }
 
@@ -176,15 +175,22 @@ body {
 
 .exp-text-pic {
     display: grid;
-    grid-template-columns: 554px 1fr;
+    grid-template-columns: 1fr 554px;
     gap: 32px;
+    align-items: start;
+    grid-template-areas: "text image";
+}
+
+.exp-text-pic .Image.small {
+    grid-area: image;
 }
 
 .exp-text {
+    grid-area: text;
     width: 100%;
 }
 
-.exp-text-header .header {
+.exp-text-header .head {
     margin: 1px 0 10px 0;
     font-size: 20px;
     color: #363E45;
@@ -211,11 +217,11 @@ body {
     color: #363E45A3;
 }
 
-#skills {
+.skills {
     margin-top: 80px;
 }
 
-#skills .section-header {
+.skills .section-header {
     line-height: 48px;
     font-size: 48px;
     color: #363E45;
@@ -225,15 +231,22 @@ body {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(2, 554px);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, auto);
+    grid-auto-flow: column;
+    grid-auto-rows: auto;
     column-gap: 32px;
 }
 
 .skill-item {
     display: flex;
     flex-direction: column;
-    min-height: 80px;
+    height: 80px;
     gap: 16px;
+}
+
+.skill-item svg {
+    display: none;
 }
 
 .skill-name {
@@ -292,7 +305,6 @@ body {
     font-size: 14px;
     color: #363e45;
     background: #fff;
-    outline: none;
 }
 
 .skills-form-btn {
@@ -306,7 +318,7 @@ body {
     white-space: nowrap;
 }
 
-#contacts {
+.contacts {
     margin-top: 80px;
 }
 
@@ -341,15 +353,18 @@ body {
 .contact-label {
     font-size: 20px;
     color: #363E45;
+    display: block;
 }
 
 .contact-value {
     font-size: 16px;
+    text-decoration: none;
     color: #363E45A3;
     margin-top: 8px;
+    display: block;
 }
 
-#footer {
+.footer {
     margin-top: 155px;
     display: grid;
     grid-template-columns: 1fr auto;
